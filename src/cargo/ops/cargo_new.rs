@@ -420,7 +420,6 @@ fn mk(config: &Config, opts: &MkOptions) -> CargoResult<()> {
     let cfg = global_config(config)?;
     // Please ensure that ignore and hgignore are in sync.
     let ignore = [
-        "\n",
         "/target\n",
         "**/*.rs.bk\n",
         if !opts.bin { "Cargo.lock\n" } else { "" },
@@ -429,7 +428,6 @@ fn mk(config: &Config, opts: &MkOptions) -> CargoResult<()> {
     // file will exclude too much. Instead, use regexp-based ignores. See 'hg help ignore' for
     // more.
     let hgignore = [
-        "\n",
         "^target/\n",
         "glob:*.rs.bk\n",
         if !opts.bin { "glob:Cargo.lock\n" } else { "" },
